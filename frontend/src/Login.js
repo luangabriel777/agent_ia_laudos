@@ -28,8 +28,17 @@ function Login({ onLogin }) {
         onLogin();
       }
     } catch (err) {
-      console.error(err);
-      alert('Falha no login, verifique suas credenciais');
+      console.error('Login error:', err);
+      if (err.response) {
+        console.error('Response data:', err.response.data);
+        console.error('Response status:', err.response.status);
+        alert(`Erro no login: ${err.response.data?.detail || 'Verifique suas credenciais'}`);
+      } else if (err.request) {
+        console.error('Request error:', err.request);
+        alert('Erro de conexão com o servidor');
+      } else {
+        alert('Falha no login, verifique suas credenciais');
+      }
     }
   };
 
