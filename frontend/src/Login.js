@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 // adicionar cabeçalhos padrões para autenticação.
 import api from './api';
 
-function Login() {
+// Componente de login que aceita um callback `onLogin` para notificar o
+// componente pai quando a autenticação ocorrer com sucesso.
+function Login({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,6 +23,10 @@ function Login() {
       // Armazena o token para uso futuro (por exemplo, em localStorage)
       localStorage.setItem('token', access_token);
       console.log('Login bem-sucedido');
+      // Informa ao componente pai que o login ocorreu corretamente
+      if (typeof onLogin === 'function') {
+        onLogin();
+      }
     } catch (err) {
       console.error(err);
       alert('Falha no login, verifique suas credenciais');
