@@ -28,6 +28,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from pydantic import BaseModel
 from dotenv import load_dotenv
+import tempfile
 
 load_dotenv()
 
@@ -141,7 +142,10 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> Dict[str, Any]:
 class Laudo(BaseModel):
     id: Optional[int] = None
     user: Optional[str] = None
-    texto: str
+    cliente: Optional[str] = None
+    equipamento: Optional[str] = None
+    diagnostico: Optional[str] = None
+    solucao: Optional[str] = None
 
 
 @app.get("/")
@@ -222,11 +226,8 @@ async def upload_audio(
     Recebe um arquivo de áudio enviado pelo frontend e envia para a API Whisper
     da OpenAI para transcrição. A transcrição é retornada como texto.
 
-    TODO:
-    - Salvar o arquivo temporariamente (por exemplo, em `/tmp`).
-    - Enviar o conteúdo para a API Whisper usando `openai.Audio.transcribe`.
-    - Implementar tratamento de erros e limites de tamanho de arquivo.
-    - Remover o arquivo temporário após a transcrição.
+    Se a variável de ambiente `OPENAI_API_KEY` não estiver configurada,
+    retorna uma mensagem de placeholder.
 
     Parâmetros
     ----------
@@ -240,10 +241,21 @@ async def upload_audio(
     dict
         Um dicionário com a transcrição do áudio.
     """
-    # Placeholder: apenas lê bytes e retorna o tamanho como teste
     audio_bytes = await file.read()
-    # TODO: integrar com Whisper API aqui
-    transcription = f"Arquivo recebido com {len(audio_bytes)} bytes (transcrição ainda não implementada)"
+    if os.getenv("OPENAI_API_KEY"):
+        try:
+            import openai
+            tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".webm")
+            tmp.write(audio_bytes)
+            tmp.close()
+            with open(tmp.name, "rb") as fh:
+                response = openai.Audio.transcribe("whisper-1", fh)
+            os.remove(tmp.name)
+            transcription = response["text"]
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=f"Erro na transcrição: {exc}")
+    else:
+        transcription = f"Arquivo recebido com {len(audio_bytes)} bytes (transcrição simulada)"
     return {"transcription": transcription}
 
 
@@ -277,6 +289,30 @@ async def parse_laudo(
     transcript = payload.get("transcription")
     if not transcript:
         raise HTTPException(status_code=400, detail="Campo 'transcription' não fornecido")
-    # TODO: integrar com ChatGPT para extrair campos do laudo
-    # Placeholder: retorna texto recebido dentro de um campo fake
-    return {"campos_extraidos": {"texto_bruto": transcript}}
+
+    if os.getenv("OPENAI_API_KEY"):
+        try:
+            import openai
+            prompt = (
+                "Extraia do texto a seguir os campos cliente, equipamento, diagnostico e solucao "
+                "no formato JSON com essas mesmas chaves."\
+            )
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt + "\n" + transcript}],
+                temperature=0,
+            )
+            content = completion.choices[0].message["content"]
+            campos = json.loads(content)
+        except Exception as exc:
+            raise HTTPException(status_code=500, detail=f"Erro na IA: {exc}")
+    else:
+        # Resposta simulada para ambientes sem chave
+        campos = {
+            "cliente": "N/D",
+            "equipamento": "N/D",
+            "diagnostico": transcript,
+            "solucao": "N/D",
+        }
+
+    return campos
