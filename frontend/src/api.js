@@ -9,9 +9,14 @@ const api = axios.create({
   baseURL: BASE_URL,
 });
 
-// Interceptor para debug
+// Adiciona token JWT se estiver salvo em localStorage
 api.interceptors.request.use(
   (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers = config.headers || {};
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     console.log('Request:', config.method?.toUpperCase(), config.url);
     return config;
   },
@@ -20,6 +25,8 @@ api.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+// Interceptor de resposta apenas para log
 
 api.interceptors.response.use(
   (response) => {

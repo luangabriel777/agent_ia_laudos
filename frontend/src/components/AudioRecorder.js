@@ -11,7 +11,8 @@ import api from '../api';
  * arquivo gravado ao backend através de um POST em `/upload-audio`.
  * Se a gravação ou o upload falharem, mensagens de erro são exibidas.
  */
-function AudioRecorder() {
+// `onParsed` recebe os campos interpretados do backend
+function AudioRecorder({ onParsed }) {
   const [isRecording, setIsRecording] = useState(false);
   const [message, setMessage] = useState('');
   const mediaRecorderRef = useRef(null);
@@ -55,7 +56,17 @@ function AudioRecorder() {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setMessage(`Transcrição: ${res.data.transcription}`);
+      const transcription = res.data.transcription;
+      setMessage(`Transcrição: ${transcription}`);
+
+      // Envia a transcrição para o endpoint de parsing
+      const parseRes = await api.post('/parse-laudo', {
+        transcription,
+      });
+
+      if (typeof onParsed === 'function') {
+        onParsed(parseRes.data);
+      }
     } catch (err) {
       console.error(err);
       setMessage('Erro ao enviar áudio para o servidor');
