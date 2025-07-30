@@ -1,0 +1,587 @@
+/* ====================================
+   🌙 RSM DARK THEME - MOURA STYLE
+   Aplicado apenas ao sistema (não ao login)
+==================================== */
+
+/* ====================================
+   🎨 OVERRIDES PARA TEMA DARK
+==================================== */
+
+/* Cards e Containers */
+.recent-laudo-card,
+.laudo-card,
+.quick-action-btn,
+.metric-card,
+.report-card,
+.technician-card,
+.user-card,
+.info-card,
+.chart-card,
+.performer-item,
+.issue-item,
+.activity-item,
+.alert-item,
+.update-item,
+.laudo-miniature-pdf {
+  background: var(--moura-gray-700) !important;
+  border-color: var(--moura-gray-600) !important;
+  color: var(--moura-white) !important;
+}
+
+.recent-laudo-card:hover,
+.laudo-card:hover,
+.quick-action-btn:hover,
+.metric-card:hover,
+.report-card:hover,
+.technician-card:hover,
+.user-card:hover,
+.info-card:hover,
+.chart-card:hover,
+.performer-item:hover,
+.issue-item:hover,
+.activity-item:hover,
+.alert-item:hover,
+.update-item:hover,
+.laudo-miniature-pdf:hover {
+  background: var(--moura-gray-600) !important;
+  border-color: var(--moura-gray-500) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Textos e Títulos */
+.dashboard-title,
+.dashboard-subtitle,
+.section-header h2,
+.section-header h3,
+.card-header h3,
+.modal-header h3,
+.management-header h2,
+.privilege-manager h2,
+.user-manager h2,
+.settings-header h1,
+.executive-header h1,
+.reports-header h1,
+.approval-header h2,
+.finalized-header h1,
+.laudo-content h4,
+.technician-info h4,
+.user-info h4,
+.performer-info h4,
+.issue-title,
+.activity-description,
+.alert-message,
+.update-content h4,
+.laudo-info h4,
+.detail-section h3,
+.form-section h3,
+.privileges-section h3,
+.users-section h3,
+.settings-section h3 {
+  color: var(--moura-white) !important;
+}
+
+/* Textos secundários */
+.laudo-content p,
+.technician-info p,
+.user-info p,
+.performer-info p,
+.issue-location,
+.activity-meta,
+.alert-severity,
+.update-meta,
+.laudo-info p,
+.detail-item span,
+.form-group label,
+.privileges-info p,
+.users-info p,
+.settings-header p,
+.executive-header p,
+.reports-header p,
+.approval-header p,
+.finalized-header p,
+.stat-subtitle,
+.status-subtitle,
+.metric-subtitle,
+.chart-label,
+.quality-label,
+.defeito-name,
+.tecnico-name,
+.legend-item,
+.bar-value,
+.chart-value,
+.score-label,
+.updated-by,
+.panel-footer p,
+.audit-time,
+.backup-status p {
+  color: var(--moura-gray-300) !important;
+}
+
+/* Tabelas */
+.laudos-table,
+.users-table,
+.audit-log {
+  background: var(--moura-gray-700) !important;
+  border-color: var(--moura-gray-600) !important;
+}
+
+.table-header,
+.table-row {
+  background: var(--moura-gray-700) !important;
+  border-color: var(--moura-gray-600) !important;
+  color: var(--moura-white) !important;
+}
+
+.table-row:hover {
+  background: var(--moura-gray-600) !important;
+}
+
+.table-cell {
+  color: var(--moura-white) !important;
+  border-color: var(--moura-gray-600) !important;
+}
+
+/* Formulários e Inputs */
+.form-input,
+.form-textarea,
+.form-select,
+.search-input,
+.status-filter,
+.modern-select,
+.color-picker,
+.tag-form input {
+  background: var(--moura-gray-600) !important;
+  border-color: var(--moura-gray-500) !important;
+  color: var(--moura-white) !important;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus,
+.search-input:focus,
+.status-filter:focus,
+.modern-select:focus,
+.color-picker:focus,
+.tag-form input:focus {
+  background: var(--moura-gray-500) !important;
+  border-color: var(--moura-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 51, 160, 0.1) !important;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--moura-gray-400) !important;
+}
+
+/* Modais */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal-content,
+.tag-modal-content {
+  background: var(--moura-gray-800) !important;
+  border-color: var(--moura-gray-600) !important;
+}
+
+.modal-header,
+.tag-modal-header {
+  background: var(--moura-gray-700) !important;
+  border-color: var(--moura-gray-600) !important;
+}
+
+.modal-body,
+.tag-form {
+  background: var(--moura-gray-800) !important;
+  color: var(--moura-white) !important;
+}
+
+/* Botões */
+.btn-primary,
+.btn-approve,
+.btn-grant,
+.btn-promote,
+.btn-create,
+.btn-save,
+.btn-save-tag {
+  background: var(--moura-primary) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--moura-primary) !important;
+}
+
+.btn-primary:hover,
+.btn-approve:hover,
+.btn-grant:hover,
+.btn-promote:hover,
+.btn-create:hover,
+.btn-save:hover,
+.btn-save-tag:hover {
+  background: #002d8a !important;
+  border-color: #002d8a !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.btn-secondary,
+.btn-view,
+.btn-edit,
+.btn-print,
+.btn-copy,
+.btn-cancel,
+.btn-close {
+  background: var(--moura-gray-600) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--moura-gray-500) !important;
+}
+
+.btn-secondary:hover,
+.btn-view:hover,
+.btn-edit:hover,
+.btn-print:hover,
+.btn-copy:hover,
+.btn-cancel:hover,
+.btn-close:hover {
+  background: var(--moura-gray-500) !important;
+  border-color: var(--moura-gray-400) !important;
+}
+
+.btn-success,
+.btn-finalize {
+  background: var(--success) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--success) !important;
+}
+
+.btn-success:hover,
+.btn-finalize:hover {
+  background: #059669 !important;
+  border-color: #059669 !important;
+}
+
+.btn-danger,
+.btn-reject,
+.btn-delete,
+.btn-demote,
+.btn-revoke {
+  background: var(--error) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--error) !important;
+}
+
+.btn-danger:hover,
+.btn-reject:hover,
+.btn-delete:hover,
+.btn-demote:hover,
+.btn-revoke:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+}
+
+.btn-warning {
+  background: var(--warning) !important;
+  color: var(--moura-dark) !important;
+  border-color: var(--warning) !important;
+}
+
+.btn-warning:hover {
+  background: #e6a600 !important;
+  border-color: #e6a600 !important;
+}
+
+/* Status Badges */
+.status-badge {
+  background: var(--moura-gray-600) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--moura-gray-500) !important;
+}
+
+.status-badge.active,
+.status-badge.success,
+.status-badge.finalized {
+  background: var(--success) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--success) !important;
+}
+
+.status-badge.pending,
+.status-badge.warning {
+  background: var(--warning) !important;
+  color: var(--moura-dark) !important;
+  border-color: var(--warning) !important;
+}
+
+.status-badge.error,
+.status-badge.rejected {
+  background: var(--error) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--error) !important;
+}
+
+/* Tabs */
+.tab-btn,
+.sidebar-tab {
+  background: var(--moura-gray-700) !important;
+  color: var(--moura-gray-300) !important;
+  border-color: var(--moura-gray-600) !important;
+}
+
+.tab-btn:hover,
+.sidebar-tab:hover {
+  background: var(--moura-gray-600) !important;
+  color: var(--moura-white) !important;
+}
+
+.tab-btn.active,
+.sidebar-tab.active {
+  background: var(--moura-primary) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--moura-primary) !important;
+}
+
+/* Charts e Gráficos */
+.pie-chart,
+.chart-bars,
+.defeito-bar,
+.quality-bar {
+  background: var(--moura-gray-600) !important;
+}
+
+.chart-bar {
+  background: var(--moura-gray-500) !important;
+}
+
+.chart-bar.total {
+  background: var(--moura-primary) !important;
+}
+
+.chart-bar.finalized {
+  background: var(--success) !important;
+}
+
+.defeito-progress,
+.quality-progress {
+  background: var(--moura-gray-500) !important;
+}
+
+.defeito-progress {
+  background: var(--moura-primary) !important;
+}
+
+.quality-progress.approval {
+  background: var(--success) !important;
+}
+
+.quality-progress.satisfaction {
+  background: var(--warning) !important;
+}
+
+.quality-progress.rework {
+  background: var(--error) !important;
+}
+
+.quality-progress.response {
+  background: var(--info) !important;
+}
+
+/* Ícones e Elementos Visuais */
+.stat-icon,
+.status-icon,
+.quality-icon,
+.audit-icon,
+.empty-icon,
+.fallback-icon,
+.pdf-icon {
+  background: var(--moura-gray-600) !important;
+  color: var(--moura-gray-300) !important;
+}
+
+.score-circle,
+.performer-rank {
+  background: var(--moura-gray-600) !important;
+  color: var(--moura-white) !important;
+  border-color: var(--moura-gray-500) !important;
+}
+
+.performer-rank.gold {
+  background: linear-gradient(135deg, #FFD700, #FFA500) !important;
+  color: var(--moura-dark) !important;
+}
+
+.performer-rank.silver {
+  background: linear-gradient(135deg, #C0C0C0, #A0A0A0) !important;
+  color: var(--moura-dark) !important;
+}
+
+.performer-rank.bronze {
+  background: linear-gradient(135deg, #CD7F32, #B8860B) !important;
+  color: var(--moura-white) !important;
+}
+
+/* Estados Vazios */
+.empty-state,
+.empty-gallery,
+.empty-report,
+.empty-audit,
+.empty-updates,
+.alerts-empty {
+  background: var(--moura-gray-700) !important;
+  color: var(--moura-gray-300) !important;
+  border-color: var(--moura-gray-600) !important;
+}
+
+.empty-state h3,
+.empty-gallery h3,
+.empty-report h3,
+.empty-audit h3,
+.empty-updates h4,
+.alerts-empty p {
+  color: var(--moura-white) !important;
+}
+
+/* Mensagens */
+.save-message,
+.message {
+  background: var(--moura-gray-700) !important;
+  border-color: var(--moura-gray-600) !important;
+  color: var(--moura-white) !important;
+}
+
+.save-message.success,
+.message.success {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: var(--success) !important;
+  color: var(--success) !important;
+}
+
+.save-message.error,
+.message.error {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: var(--error) !important;
+  color: var(--error) !important;
+}
+
+/* Loading States */
+.loading-spinner,
+.loading-spinner-large {
+  border-color: var(--moura-gray-600) !important;
+  border-top-color: var(--moura-primary) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--moura-gray-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--moura-gray-600);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--moura-gray-500);
+}
+
+/* Seleção de texto */
+::selection {
+  background: var(--moura-primary);
+  color: var(--moura-white);
+}
+
+::-moz-selection {
+  background: var(--moura-primary);
+  color: var(--moura-white);
+}
+
+/* ====================================
+   📱 RESPONSIVIDADE DARK THEME
+==================================== */
+
+@media (max-width: 768px) {
+  .stat-card,
+  .status-card,
+  .recent-laudo-card,
+  .laudo-card,
+  .quick-action-btn,
+  .metric-card,
+  .report-card,
+  .technician-card,
+  .user-card,
+  .info-card,
+  .chart-card,
+  .performer-item,
+  .issue-item,
+  .activity-item,
+  .alert-item,
+  .update-item {
+    background: var(--moura-gray-700) !important;
+    border-color: var(--moura-gray-600) !important;
+  }
+  
+  .modal-content,
+  .tag-modal-content {
+    background: var(--moura-gray-800) !important;
+    margin: 1rem !important;
+  }
+}
+
+/* ====================================
+   ⚡ ANIMAÇÕES DARK THEME
+==================================== */
+
+@keyframes darkPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 51, 160, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 51, 160, 0);
+  }
+}
+
+.btn-primary:focus,
+.btn-approve:focus {
+  animation: darkPulse 2s infinite;
+}
+
+/* ====================================
+   🎯 FOCUS STATES DARK THEME
+==================================== */
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--moura-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* ====================================
+   🌟 HOVER EFFECTS DARK THEME
+==================================== */
+
+.stat-card:hover,
+.status-card:hover,
+.recent-laudo-card:hover,
+.laudo-card:hover,
+.quick-action-btn:hover,
+.metric-card:hover,
+.report-card:hover,
+.technician-card:hover,
+.user-card:hover,
+.info-card:hover,
+.chart-card:hover,
+.performer-item:hover,
+.issue-item:hover,
+.activity-item:hover,
+.alert-item:hover,
+.update-item:hover,
+.laudo-miniature-pdf:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+} 

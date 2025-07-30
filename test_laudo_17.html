@@ -1,0 +1,237 @@
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laudo Técnico #17 - RSM Moura</title>
+        <style>
+            @media print {
+                body { margin: 0; padding: 20px; }
+                .no-print { display: none !important; }
+                .page-break { page-break-before: always; }
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f8fafc;
+            }
+            
+            .header {
+                text-align: center;
+                border-bottom: 3px solid #1e40af;
+                padding-bottom: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .logo {
+                font-size: 24px;
+                font-weight: bold;
+                color: #1e40af;
+                margin-bottom: 10px;
+            }
+            
+            .title {
+                font-size: 28px;
+                font-weight: bold;
+                color: #1f2937;
+                margin-bottom: 5px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+                color: #6b7280;
+                margin-bottom: 20px;
+            }
+            
+            .laudo-info {
+                background: white;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            
+            .info-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .info-item {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .info-label {
+                font-weight: 600;
+                color: #374151;
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
+            
+            .info-value {
+                color: #1f2937;
+                font-size: 16px;
+            }
+            
+            .status-badge {
+                display: inline-block;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: 600;
+                color: white;
+                background-color: #6b7280;
+            }
+            
+            .section {
+                background: white;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 20px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            
+            .section-title {
+                font-size: 18px;
+                font-weight: 600;
+                color: #1f2937;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #e5e7eb;
+                padding-bottom: 8px;
+            }
+            
+            .content-text {
+                color: #374151;
+                line-height: 1.7;
+                text-align: justify;
+            }
+            
+            .footer {
+                margin-top: 40px;
+                padding-top: 20px;
+                border-top: 1px solid #e5e7eb;
+                text-align: center;
+                color: #6b7280;
+                font-size: 14px;
+            }
+            
+            .signature-section {
+                margin-top: 40px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            
+            .signature-box {
+                text-align: center;
+                padding: 20px;
+                border-top: 2px solid #1e40af;
+            }
+            
+            .signature-line {
+                width: 200px;
+                height: 1px;
+                background-color: #1e40af;
+                margin: 40px auto 10px;
+            }
+            
+            .print-button {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #1e40af;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+            .print-button:hover {
+                background: #1e3a8a;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="print-button no-print" onclick="window.print()">🖨️ Imprimir</button>
+        
+        <div class="header">
+            <div class="logo">🔋 RSM - Rede de Serviços Moura</div>
+            <h1 class="title">Laudo Técnico</h1>
+            <p class="subtitle">Sistema de Gestão de Laudos Técnicos</p>
+        </div>
+        
+        <div class="laudo-info">
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Número do Laudo:</span>
+                    <span class="info-value">#17</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Status:</span>
+                    <span class="status-badge">aprovado_vendas</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Cliente:</span>
+                    <span class="info-value">fbd</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Equipamento:</span>
+                    <span class="info-value">fbh</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Técnico Responsável:</span>
+                    <span class="info-value">admin</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Data de Criação:</span>
+                    <span class="info-value">27/07/2025 às 15:30</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Problema Relatado</h2>
+            <p class="content-text">Não informado</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Diagnóstico Técnico</h2>
+            <p class="content-text">fdb</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Solução Aplicada</h2>
+            <p class="content-text"></p>
+        </div>
+        
+        <div class="signature-section">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p><strong>admin</strong></p>
+                <p>Técnico Responsável</p>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p><strong>Cliente</strong></p>
+                <p>Assinatura</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Documento gerado automaticamente pelo sistema RSM - Rede de Serviços Moura</p>
+            <p>Última atualização: 29/07/2025 às 07:03</p>
+        </div>
+    </body>
+    </html>
+    

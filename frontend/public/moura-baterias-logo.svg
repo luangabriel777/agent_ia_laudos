@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 250 100" width="250" height="100">
+  <defs>
+    <!-- Gradientes -->
+    <linearGradient id="batteryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B365D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filtros -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect x="0" y="0" width="250" height="100" rx="15" ry="15" fill="white" stroke="url(#batteryGradient)" stroke-width="2"/>
+  
+  <!-- Ícone principal - Bateria técnica -->
+  <g transform="translate(20, 25)">
+    <!-- Corpo principal da bateria -->
+    <rect x="0" y="0" width="50" height="30" rx="5" ry="5" fill="url(#batteryGradient)" stroke="#1B365D" stroke-width="1"/>
+    <rect x="50" y="8" width="8" height="14" rx="3" ry="3" fill="url(#batteryGradient)"/>
+    
+    <!-- Indicadores de nível -->
+    <rect x="5" y="5" width="10" height="20" rx="2" ry="2" fill="url(#energyGradient)" filter="url(#glow)"/>
+    <rect x="18" y="5" width="10" height="20" rx="2" ry="2" fill="url(#energyGradient)" opacity="0.8"/>
+    <rect x="31" y="5" width="10" height="20" rx="2" ry="2" fill="url(#energyGradient)" opacity="0.6"/>
+    
+    <!-- Símbolo de energia -->
+    <polygon points="60,10 66,5 62,10 68,15 62,20 66,15 60,20" fill="#F59E0B"/>
+    
+    <!-- Terminais -->
+    <rect x="5" y="-3" width="8" height="6" rx="1" ry="1" fill="#374151"/>
+    <rect x="37" y="-3" width="8" height="6" rx="1" ry="1" fill="#374151"/>
+  </g>
+  
+  <!-- Texto MOURA -->
+  <text x="100" y="45" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="url(#batteryGradient)">
+    MOURA
+  </text>
+  
+  <!-- Texto BATERIAS -->
+  <text x="100" y="65" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#6B7280">
+    BATERIAS
+  </text>
+  
+  <!-- Linha técnica -->
+  <line x1="100" y1="72" x2="220" y2="72" stroke="url(#energyGradient)" stroke-width="3" opacity="0.8"/>
+  
+  <!-- Elementos técnicos decorativos -->
+  <g transform="translate(200, 20)">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="url(#batteryGradient)" stroke-width="1" opacity="0.6"/>
+    <circle cx="0" cy="0" r="4" fill="url(#energyGradient)" opacity="0.8"/>
+    
+    <circle cx="15" cy="10" r="6" fill="none" stroke="url(#batteryGradient)" stroke-width="1" opacity="0.4"/>
+    <circle cx="15" cy="10" r="2" fill="url(#energyGradient)" opacity="0.6"/>
+    
+    <circle cx="8" cy="20" r="3" fill="url(#batteryGradient)" opacity="0.3"/>
+  </g>
+  
+  <!-- Texto técnico inferior -->
+  <text x="100" y="85" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="500" fill="#9CA3AF">
+    TECNOLOGIA AVANÇADA EM ENERGIA
+  </text>
+</svg> 

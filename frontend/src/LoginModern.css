@@ -1,0 +1,652 @@
+/* ====================================
+   🎨 LOGIN MODERNO - DESIGN INSTITUCIONAL MOURA
+   Glassmorphism + Cores Corporativas
+==================================== */
+
+/* ✅ VARIÁVEIS DE CORES INSTITUCIONAIS MOURA */
+:root {
+  --moura-blue: #1B3B6F;
+  --moura-yellow: #FFCB05;
+  --moura-blue-light: #2A4A7A;
+  --moura-blue-dark: #0F1F3A;
+  --moura-gray-dark: #272727;
+  --moura-gray-light: #4A4A4A;
+  --moura-white: #FFFFFF;
+  --moura-black: #1A1A1A;
+  
+  /* Cores de estado */
+  --success-green: #10B981;
+  --warning-orange: #F59E0B;
+  --error-red: #EF4444;
+  --info-blue: #3B82F6;
+}
+
+/* ✅ CONTAINER PRINCIPAL */
+.login-container-modern {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ✅ FUNDO GRADIENTE RADIAL */
+.login-background {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, var(--moura-blue) 0%, var(--moura-black) 100%);
+  z-index: 1;
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(27, 59, 111, 0.3) 0%, 
+    rgba(26, 26, 26, 0.8) 50%, 
+    rgba(15, 31, 58, 0.4) 100%);
+  animation: gradientShift 20s ease infinite;
+}
+
+.radial-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, 
+    rgba(255, 203, 5, 0.1) 0%, 
+    rgba(27, 59, 111, 0.05) 40%, 
+    transparent 70%);
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+/* ✅ CARD PRINCIPAL - GLASSMORPHISM */
+.login-card-modern {
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.login-card-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 32px 64px -12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ✅ HEADER MODERNO */
+.login-header-modern {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.logo-container-modern {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo-modern {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.logo-modern:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.login-logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.login-logo-fallback {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, var(--moura-blue), var(--moura-blue-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(27, 59, 111, 0.3);
+}
+
+.logo-fallback-icon {
+  font-size: 1.75rem;
+  color: var(--moura-white);
+}
+
+.login-title-modern {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--moura-white);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.025em;
+}
+
+.login-subtitle-modern {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.login-description-modern {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+/* ✅ MENSAGEM DE ERRO */
+.error-message-modern {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #FEE2E2;
+  font-size: 0.875rem;
+  backdrop-filter: blur(8px);
+}
+
+.error-icon {
+  font-size: 1rem;
+}
+
+/* ✅ FORMULÁRIO MODERNO */
+.login-form-modern {
+  margin-bottom: 2rem;
+}
+
+.form-group-modern {
+  margin-bottom: 1.5rem;
+}
+
+.form-label-modern {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+}
+
+.form-input-modern {
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--moura-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  backdrop-filter: blur(8px);
+}
+
+.form-input-modern:focus {
+  border-color: var(--moura-yellow);
+  box-shadow: 
+    0 0 0 3px rgba(255, 203, 5, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.form-input-modern::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-input-modern:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ✅ BOTÃO DE LOGIN PRINCIPAL */
+.login-btn-modern {
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--moura-blue) 0%, var(--moura-blue-light) 100%);
+  color: var(--moura-white);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(27, 59, 111, 0.3);
+}
+
+.login-btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.login-btn-modern:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.login-btn-modern:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--moura-blue-light) 0%, var(--moura-blue) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(27, 59, 111, 0.4);
+}
+
+.login-btn-modern:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(27, 59, 111, 0.3);
+}
+
+.login-btn-modern:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-icon {
+  font-size: 1rem;
+}
+
+.spinner-modern {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--moura-white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ✅ ACESSOS RÁPIDOS MODERNOS */
+.quick-access-modern {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.quick-access-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.quick-access-title-modern {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.dev-icon {
+  font-size: 0.875rem;
+}
+
+.toggle-credentials-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.toggle-credentials-btn:hover {
+  color: var(--moura-yellow);
+  background: rgba(255, 203, 5, 0.1);
+}
+
+.quick-access-grid-modern {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.quick-btn-modern {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  color: var(--moura-white);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quick-btn-modern:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quick-btn-modern:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ✅ CORES INSTITUCIONAIS PARA BOTÕES RÁPIDOS */
+.quick-btn-admin {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.2) 0%, rgba(220, 38, 38, 0.1) 100%);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.quick-btn-admin:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.3) 0%, rgba(220, 38, 38, 0.2) 100%);
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+.quick-btn-tecnico {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%);
+  border-color: rgba(5, 150, 105, 0.3);
+}
+
+.quick-btn-tecnico:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.3) 0%, rgba(5, 150, 105, 0.2) 100%);
+  border-color: rgba(5, 150, 105, 0.4);
+}
+
+.quick-btn-encarregado {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.2) 0%, rgba(217, 119, 6, 0.1) 100%);
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+.quick-btn-encarregado:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.3) 0%, rgba(217, 119, 6, 0.2) 100%);
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+.quick-btn-vendedor {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(37, 99, 235, 0.1) 100%);
+  border-color: rgba(37, 99, 235, 0.3);
+}
+
+.quick-btn-vendedor:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3) 0%, rgba(37, 99, 235, 0.2) 100%);
+  border-color: rgba(37, 99, 235, 0.4);
+}
+
+.quick-btn-icon-modern {
+  font-size: 0.875rem;
+}
+
+.quick-btn-text {
+  font-weight: 500;
+}
+
+/* ✅ INFORMAÇÕES DE CREDENCIAIS COLAPSÁVEIS */
+.credentials-info-modern {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  backdrop-filter: blur(8px);
+  animation: slideDown 0.3s ease;
+}
+
+.credentials-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.credentials-icon {
+  font-size: 1rem;
+}
+
+.credentials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.credential-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.credential-icon {
+  font-size: 0.875rem;
+  width: 1.5rem;
+  text-align: center;
+}
+
+.credential-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 500;
+  min-width: 4rem;
+}
+
+.credential-code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--moura-yellow);
+  border: 1px solid rgba(255, 203, 5, 0.2);
+}
+
+.dev-mode-indicator-modern {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 203, 5, 0.1);
+  border: 1px solid rgba(255, 203, 5, 0.2);
+  border-radius: 8px;
+  color: var(--moura-yellow);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ✅ FOOTER */
+.login-footer-modern {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-footer-modern p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* ✅ ANIMAÇÕES */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .login-card-modern {
+    padding: 2rem;
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+
+  .login-title-modern {
+    font-size: 2rem;
+  }
+
+  .quick-access-grid-modern {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .form-input-modern {
+    padding: 0.75rem 1rem;
+  }
+
+  .login-btn-modern {
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card-modern {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .login-title-modern {
+    font-size: 1.75rem;
+  }
+
+  .logo-modern {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .login-logo,
+  .login-logo-fallback {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .credentials-info-modern {
+    padding: 1rem;
+  }
+
+  .credential-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .credential-label {
+    min-width: auto;
+  }
+}
+
+/* ✅ ACESSIBILIDADE */
+@media (prefers-reduced-motion: reduce) {
+  .login-card-modern,
+  .form-input-modern,
+  .login-btn-modern,
+  .quick-btn-modern {
+    transition: none;
+  }
+
+  .gradient-overlay,
+  .radial-glow {
+    animation: none;
+  }
+}
+
+/* ✅ FOCUS VISIBLE PARA ACESSIBILIDADE */
+.login-btn-modern:focus-visible,
+.form-input-modern:focus-visible,
+.quick-btn-modern:focus-visible,
+.toggle-credentials-btn:focus-visible {
+  outline: 2px solid var(--moura-yellow);
+  outline-offset: 2px;
+} 

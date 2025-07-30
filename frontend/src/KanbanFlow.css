@@ -1,0 +1,344 @@
+/* Kanban Flow - Fluxo Automatizado de Laudos */
+
+.kanban-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  min-height: 100vh;
+}
+
+.kanban-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.kanban-header h2 {
+  color: var(--moura-dark-gray);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.kanban-header p {
+  color: var(--moura-medium-gray);
+  font-size: 1.1rem;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  min-height: 600px;
+}
+
+.kanban-column {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(45, 55, 72, 0.1);
+  min-width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+}
+
+.column-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--moura-light-gray);
+  border-top: 4px solid var(--moura-blue);
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+}
+
+.column-header h3 {
+  color: var(--moura-dark-gray);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.column-count {
+  color: var(--moura-medium-gray);
+  font-size: 0.9rem;
+  background: var(--moura-light-gray);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.column-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.empty-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--moura-medium-gray);
+  height: 200px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Kanban Cards */
+.kanban-card {
+  background: white;
+  border: 1px solid var(--moura-light-gray);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(45, 55, 72, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.kanban-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(45, 55, 72, 0.15);
+  border-color: var(--moura-blue);
+}
+
+.card-header {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-id {
+  font-weight: 700;
+  color: var(--moura-blue);
+  font-size: 0.9rem;
+}
+
+.card-status {
+  background: var(--moura-light-gray);
+  color: var(--moura-dark-gray);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-client {
+  color: var(--moura-dark-gray);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-equipment {
+  color: var(--moura-medium-gray);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.card-diagnosis {
+  color: var(--moura-medium-gray);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--moura-medium-gray);
+  margin-bottom: 1rem;
+}
+
+.card-actions {
+  padding: 0 1rem 1rem;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.action-btn.approve {
+  background: linear-gradient(135deg, var(--moura-green) 0%, #38A169 100%);
+  color: white;
+}
+
+.action-btn.approve-vendor {
+  background: linear-gradient(135deg, #FFEB3B 0%, #FFC107 100%);
+  color: var(--moura-dark-gray);
+}
+
+.action-btn.finalize {
+  background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+  color: white;
+}
+
+.action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading State */
+.kanban-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: var(--moura-medium-gray);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--moura-light-gray);
+  border-top: 3px solid var(--moura-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Legend */
+.kanban-legend {
+  margin-top: 2rem;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(45, 55, 72, 0.1);
+}
+
+.kanban-legend h4 {
+  color: var(--moura-dark-gray);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.legend-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--moura-medium-gray);
+}
+
+.legend-arrow {
+  padding: 0.25rem 0.5rem;
+  background: var(--moura-light-gray);
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .kanban-container {
+    padding: 1rem;
+  }
+  
+  .kanban-board {
+    gap: 1rem;
+  }
+  
+  .kanban-column {
+    min-width: 280px;
+  }
+  
+  .column-header {
+    padding: 1rem;
+  }
+  
+  .legend-items {
+    justify-content: center;
+  }
+  
+  .legend-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .kanban-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .kanban-column {
+    min-width: 250px;
+  }
+  
+  .card-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+/* Scrollbar personalizada */
+.kanban-board::-webkit-scrollbar {
+  height: 8px;
+}
+
+.kanban-board::-webkit-scrollbar-track {
+  background: var(--moura-light-gray);
+  border-radius: 4px;
+}
+
+.kanban-board::-webkit-scrollbar-thumb {
+  background: var(--moura-medium-gray);
+  border-radius: 4px;
+}
+
+.kanban-board::-webkit-scrollbar-thumb:hover {
+  background: var(--moura-dark-gray);
+}
+
+.column-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.column-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.column-content::-webkit-scrollbar-thumb {
+  background: var(--moura-light-gray);
+  border-radius: 3px;
+}
+
+.column-content::-webkit-scrollbar-thumb:hover {
+  background: var(--moura-medium-gray);
+} 

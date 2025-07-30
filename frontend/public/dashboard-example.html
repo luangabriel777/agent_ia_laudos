@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSM - Dashboard Administrativo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'moura-yellow': '#FFD54F',
+            'moura-dark': '#0B1120',
+            'moura-surface': '#10172A',
+            'moura-gray': '#1E293B',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#0B1120] text-white font-sans">
+
+  <!-- Sidebar -->
+  <div class="flex">
+    <aside class="w-64 bg-[#10172A] min-h-screen p-5">
+      <div class="mb-10">
+        <div class="flex items-center gap-3">
+          <div class="bg-yellow-400 text-black font-bold text-xl px-2 py-1 rounded">
+            SM
+          </div>
+          <div>
+            <h1 class="text-gray-300 text-xs uppercase font-semibold">Rede de Serviços Moura</h1>
+          </div>
+        </div>
+      </div>
+      
+      <nav class="space-y-4">
+        <button class="w-full flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors p-3 rounded-lg bg-yellow-400 text-black font-semibold">
+          <span class="text-lg">📊</span>
+          <span class="font-medium">Dashboard</span>
+        </button>
+        <button class="w-full flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors p-3 rounded-lg hover:bg-gray-700">
+          <span class="text-lg">📄</span>
+          <span class="font-medium">Laudos</span>
+        </button>
+        <button class="w-full flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors p-3 rounded-lg hover:bg-gray-700">
+          <span class="text-lg">✅</span>
+          <span class="font-medium">Laudos Finalizados</span>
+        </button>
+        <button class="w-full flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors p-3 rounded-lg hover:bg-gray-700">
+          <span class="text-lg">📌</span>
+          <span class="font-medium">Centro de Aprovações</span>
+        </button>
+        <button class="w-full flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors p-3 rounded-lg hover:bg-gray-700">
+          <span class="text-lg">📊</span>
+          <span class="font-medium">Relatórios</span>
+        </button>
+        <button class="w-full flex items-center gap-3 text-gray-300 hover:text-yellow-400 transition-colors p-3 rounded-lg hover:bg-gray-700">
+          <span class="text-lg">⚙️</span>
+          <span class="font-medium">Configurações</span>
+        </button>
+      </nav>
+
+      <!-- Seção Admin -->
+      <div class="mt-8 pt-8 border-t border-gray-700">
+        <div class="flex items-center gap-3 p-3 rounded-lg bg-yellow-400 text-black font-semibold">
+          <span class="text-lg">👑</span>
+          <span class="text-sm uppercase">Administrador</span>
+        </div>
+      </div>
+
+      <!-- Informações do Usuário -->
+      <div class="mt-auto pt-8 border-t border-gray-700">
+        <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-700 transition-colors">
+          <div class="bg-gray-600 w-8 h-8 rounded-full flex items-center justify-center text-yellow-400 font-semibold text-sm">
+            A
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-white font-medium text-sm truncate">Administrador</p>
+            <p class="text-gray-400 text-xs">Administrador</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão de Toggle -->
+      <button class="mt-4 w-full bg-gray-700 hover:bg-gray-600 text-gray-300 p-2 rounded-lg transition-colors">
+        ←
+      </button>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-1 p-8">
+      
+      <!-- Header -->
+      <header class="flex justify-between items-center mb-8">
+        <div>
+          <h1 class="text-2xl font-bold text-yellow-400">Boa tarde, Administrador!</h1>
+          <p class="text-gray-400 text-sm">Aqui está um resumo completo das atividades no sistema RSM</p>
+        </div>
+        <div class="flex items-center gap-5">
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 rounded-lg transition-colors">Gerenciar Usuários</button>
+          <div class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-yellow-400 font-semibold">A</div>
+        </div>
+      </header>
+
+      <!-- Cards Resumo -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-yellow-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Total de Laudos</p>
+          <h2 class="text-3xl font-bold text-yellow-400">28</h2>
+          <p class="text-gray-500 text-xs mt-1">Todos os laudos</p>
+        </div>
+        
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-red-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Pendentes</p>
+          <h2 class="text-3xl font-bold text-red-400">8</h2>
+          <p class="text-gray-500 text-xs mt-1">Aguardando aprovação</p>
+        </div>
+        
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-green-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Aprovados</p>
+          <h2 class="text-3xl font-bold text-green-400">16</h2>
+          <p class="text-gray-500 text-xs mt-1">Laudos aprovados</p>
+        </div>
+        
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-blue-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Usuários</p>
+          <h2 class="text-3xl font-bold text-blue-400">5</h2>
+          <p class="text-gray-500 text-xs mt-1">Usuários ativos</p>
+        </div>
+      </section>
+
+      <!-- Cards de Status Adicionais -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-orange-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Laudos Hoje</p>
+          <h2 class="text-3xl font-bold text-orange-400">3</h2>
+          <p class="text-gray-500 text-xs mt-1">Criados hoje</p>
+        </div>
+        
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-purple-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Esta Semana</p>
+          <h2 class="text-3xl font-bold text-purple-400">12</h2>
+          <p class="text-gray-500 text-xs mt-1">Últimos 7 dias</p>
+        </div>
+        
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-teal-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Este Mês</p>
+          <h2 class="text-3xl font-bold text-teal-400">28</h2>
+          <p class="text-gray-500 text-xs mt-1">Últimos 30 dias</p>
+        </div>
+        
+        <div class="bg-[#10172A] rounded-xl p-5 text-center border border-gray-700 hover:border-pink-400 transition-colors">
+          <p class="text-gray-400 text-sm mb-2">Finalizados</p>
+          <h2 class="text-3xl font-bold text-pink-400">4</h2>
+          <p class="text-gray-500 text-xs mt-1">Concluídos</p>
+        </div>
+      </section>
+
+      <!-- Laudos Recentes -->
+      <section class="mb-10">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold text-yellow-400">📋 Laudos Recentes</h2>
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 rounded-lg transition-colors">
+            Ver Todos
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors">
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-gray-400 text-sm">#123</span>
+              <span class="px-2 py-1 rounded-full text-xs font-semibold text-white bg-orange-500">
+                Em Andamento
+              </span>
+            </div>
+            <div class="mb-4">
+              <h4 class="font-semibold text-white mb-1">Cliente ABC Ltda</h4>
+              <p class="text-gray-400 text-sm mb-1">Bateria Automotiva 60Ah</p>
+              <p class="text-gray-500 text-xs">29/07/2025</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white text-xs py-2 px-3 rounded transition-colors">
+                👁️ Visualizar
+              </button>
+              <button class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-black text-xs py-2 px-3 rounded transition-colors">
+                ✏️ Editar
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors">
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-gray-400 text-sm">#124</span>
+              <span class="px-2 py-1 rounded-full text-xs font-semibold text-white bg-green-500">
+                Finalizado
+              </span>
+            </div>
+            <div class="mb-4">
+              <h4 class="font-semibold text-white mb-1">Empresa XYZ</h4>
+              <p class="text-gray-400 text-sm mb-1">Bateria Industrial 200Ah</p>
+              <p class="text-gray-500 text-xs">28/07/2025</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white text-xs py-2 px-3 rounded transition-colors">
+                👁️ Visualizar
+              </button>
+              <button class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-black text-xs py-2 px-3 rounded transition-colors">
+                ✏️ Editar
+              </button>
+              <button class="flex-1 bg-green-500 hover:bg-green-600 text-white text-xs py-2 px-3 rounded transition-colors">
+                📄 PDF
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors">
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-gray-400 text-sm">#125</span>
+              <span class="px-2 py-1 rounded-full text-xs font-semibold text-white bg-blue-500">
+                Pendente
+              </span>
+            </div>
+            <div class="mb-4">
+              <h4 class="font-semibold text-white mb-1">Loja de Baterias</h4>
+              <p class="text-gray-400 text-sm mb-1">Bateria Motocicleta 7Ah</p>
+              <p class="text-gray-500 text-xs">27/07/2025</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white text-xs py-2 px-3 rounded transition-colors">
+                👁️ Visualizar
+              </button>
+              <button class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-black text-xs py-2 px-3 rounded transition-colors">
+                ✏️ Editar
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ações Rápidas -->
+      <section class="mb-10">
+        <h2 class="text-xl font-semibold text-yellow-400 mb-6">⚡ Ações Rápidas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <button class="bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors text-left group">
+            <div class="text-2xl mb-3">➕</div>
+            <h3 class="font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Novo Laudo Simples</h3>
+            <p class="text-gray-400 text-sm">Criar laudo básico rapidamente</p>
+          </button>
+
+          <button class="bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors text-left group">
+            <div class="text-2xl mb-3">🔋</div>
+            <h3 class="font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Laudo Avançado</h3>
+            <p class="text-gray-400 text-sm">Análise técnica completa de baterias</p>
+          </button>
+
+          <button class="bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors text-left group">
+            <div class="text-2xl mb-3">🎤</div>
+            <h3 class="font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Gravação de Voz</h3>
+            <p class="text-gray-400 text-sm">Ditar informações com IA</p>
+          </button>
+
+          <button class="bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors text-left group">
+            <div class="text-2xl mb-3">📊</div>
+            <h3 class="font-semibold text-white mb-2 group-hover:text-yellow-400 transition-colors">Relatórios</h3>
+            <p class="text-gray-400 text-sm">Visualizar métricas e dados</p>
+          </button>
+        </div>
+      </section>
+
+      <!-- Painel de Atualizações -->
+      <section>
+        <div class="bg-[#10172A] rounded-xl p-6 border border-gray-700">
+          <h3 class="text-xl font-semibold text-yellow-400 mb-4">Painel de Atualizações</h3>
+          <div class="flex items-center justify-center text-gray-500 py-10">
+            <div class="text-center">
+              <div class="text-4xl mb-4">📌</div>
+              <p class="text-white mb-2">Nenhuma tag recente</p>
+              <p class="text-gray-400 text-sm">As tags adicionadas aos laudos aparecerão aqui</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-gray-500 text-xs">
+            <div class="flex items-center gap-2">
+              <input type="checkbox" class="rounded">
+              <span>Painel otimizado para exibição em TV</span>
+            </div>
+            <span>Atualizações automáticas a cada 30 segundos</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html> 

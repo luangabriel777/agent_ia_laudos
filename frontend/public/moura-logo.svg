@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 80" width="200" height="80">
+  <defs>
+    <!-- Gradientes modernos -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B365D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Sombra -->
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background do logo -->
+  <rect x="5" y="5" width="190" height="70" rx="12" ry="12" fill="url(#primaryGradient)" filter="url(#shadow)"/>
+  
+  <!-- Ícone de bateria estilizado -->
+  <g transform="translate(15, 20)">
+    <!-- Corpo da bateria -->
+    <rect x="0" y="10" width="40" height="25" rx="4" ry="4" fill="white" opacity="0.9"/>
+    <rect x="40" y="16" width="6" height="13" rx="2" ry="2" fill="white" opacity="0.9"/>
+    
+    <!-- Indicador de energia -->
+    <rect x="4" y="14" width="8" height="17" rx="2" ry="2" fill="url(#accentGradient)"/>
+    <rect x="14" y="14" width="8" height="17" rx="2" ry="2" fill="url(#accentGradient)" opacity="0.8"/>
+    <rect x="24" y="14" width="8" height="17" rx="2" ry="2" fill="url(#accentGradient)" opacity="0.6"/>
+    
+    <!-- Raio de energia -->
+    <polygon points="50,20 56,15 52,20 58,25 52,30 56,25 50,30" fill="#F59E0B" opacity="0.8"/>
+  </g>
+  
+  <!-- Texto MOURA -->
+  <text x="80" y="35" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="white">
+    MOURA
+  </text>
+  
+  <!-- Texto RSM -->
+  <text x="80" y="52" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="white" opacity="0.9">
+    REDE DE SERVIÇOS
+  </text>
+  
+  <!-- Linha decorativa -->
+  <line x1="80" y1="57" x2="185" y2="57" stroke="url(#accentGradient)" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Elementos decorativos -->
+  <circle cx="170" cy="25" r="3" fill="white" opacity="0.3"/>
+  <circle cx="180" cy="30" r="2" fill="white" opacity="0.4"/>
+  <circle cx="175" cy="35" r="1.5" fill="white" opacity="0.5"/>
+</svg> 

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importar fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Estilos customizados para o tema Moura */
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-moura {
+    @apply bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 rounded-lg transition-colors;
+  }
+  
+  .card-moura {
+    @apply bg-[#10172A] rounded-xl p-5 border border-gray-700 hover:border-yellow-400 transition-colors;
+  }
+  
+  .text-moura-yellow {
+    @apply text-yellow-400;
+  }
+} 
