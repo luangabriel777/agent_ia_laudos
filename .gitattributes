@@ -1,5 +1,5 @@
 # ===========================================
-# ART-Laudo-Técnico-Pro - .gitattributes
+# ART-Laudo-Técnico-Pro - .attributes
 # ===========================================
 
 # ===========================================
@@ -80,8 +80,8 @@
 # ===========================================
 
 # Arquivos de configuração do projeto
-.gitignore text eol=lf
-.gitattributes text eol=lf
+.ignore text eol=lf
+.attributes text eol=lf
 README.md text eol=lf
 package.json text eol=lf
 package-lock.json text eol=lf

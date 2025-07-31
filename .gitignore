@@ -1,5 +1,5 @@
 # ===========================================
-# ART-Laudo-Técnico-Pro - .gitignore
+# ART-Laudo-Técnico-Pro - .ignore
 # ===========================================
 
 # ===========================================
@@ -117,7 +117,7 @@ ipython_config.py
 #   https://pdm.fming.dev/#use-with-ide
 .pdm.toml
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+# PEP 582; used by e.g. hub.com/David-OConnor/pyflow and hub.com/pdm-project/pdm
 __pypackages__/
 
 # Celery stuff
@@ -161,8 +161,8 @@ dmypy.json
 cython_debug/
 
 # PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be added to the global gitignore or merged into this project gitignore.  For a PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.ignore that can
+#  be added to the global ignore or merged into this project ignore.  For a PyCharm
 #  project, it is recommended to include the following files:
 #  .idea/
 #  *.iml
@@ -448,8 +448,8 @@ docker-compose.override.yml
 # CI/CD
 # ===========================================
 
-# GitHub Actions
-.github/workflows/.env
+# Hub Actions
+.hub/workflows/.env
 
 # ===========================================
 # Backup e Arquivos Temporários
