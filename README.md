@@ -1,83 +1,77 @@
-# 🚀 RSM Laudos Técnicos Pro
+# RSM Frontend
 
-Sistema SaaS de geração de laudos técnicos com IA para até 15 usuários simultâneos.
+Frontend do sistema RSM (Relatórios de Serviços e Manutenção) desenvolvido em React.
 
-## 🎯 Status do Projeto
+## 🚀 Tecnologias
 
-✅ **PRONTO PARA PRODUÇÃO** - Sistema configurado para deploy imediato
-
-## 🚀 Deploy Rápido para Produção
-
-### Opção Recomendada: Railway + Vercel
-
-1. **Execute o script de deploy:**
-   ```powershell
-   .\scripts\deploy-production.ps1
-   ```
-
-2. **Siga o guia completo:**
-   - 📖 [DEPLOY_PRODUCTION.md](DEPLOY_PRODUCTION.md)
-
-3. **Configuração automática:**
-   - Backend: Railway (FastAPI)
-   - Frontend: Vercel (React)
-   - Banco: SQLite (Railway)
-
-## 🏗️ Arquitetura
-
-```
-Frontend (React) → Vercel
-    ↓
-Backend (FastAPI) → Railway
-    ↓
-Banco SQLite → Railway
-```
+- React
+- Tailwind CSS
+- JavaScript (ES6+)
+- HTML5
+- CSS3
 
 ## 📋 Pré-requisitos
 
-- ✅ Conta Railway (https://railway.app)
-- ✅ Conta Vercel (https://vercel.com)
-- ✅ Chave OpenAI (https://platform.openai.com)
-- ✅ Repositório GitHub
+- Node.js (versão 14 ou superior)
+- npm ou yarn
 
-## 🔧 Configuração Local
+## 🔧 Instalação
 
-### Backend
+1. Clone o repositório:
 ```bash
-cd backend
-pip install -r requirements.txt
-uvicorn app:app --reload
+git clone [URL_DO_REPOSITORIO]
+cd rsm-frontend
 ```
 
-### Frontend
+2. Instale as dependências:
 ```bash
-cd frontend
 npm install
+```
+
+3. Configure as variáveis de ambiente:
+```bash
+cp .env.example .env
+```
+
+4. Inicie o servidor de desenvolvimento:
+```bash
 npm start
 ```
 
-## 🔐 Acesso
+## 📁 Estrutura do Projeto
 
-- **Admin:** `admin` / `123456`
-- **Técnico:** `tecnico` / `123456`
+```
+src/
+├── components/          # Componentes React
+├── utils/              # Utilitários e helpers
+├── App.js              # Componente principal
+├── index.js            # Ponto de entrada
+└── ...
 
-## 📊 Recursos
+public/
+├── index.html          # HTML principal
+├── manifest.json       # Manifesto PWA
+└── ...
 
-- ✅ Sistema de autenticação JWT
-- ✅ Geração de laudos com IA
-- ✅ Sistema de aprovação
-- ✅ Dashboard administrativo
-- ✅ Relatórios e estatísticas
-- ✅ Sistema de tags
-- ✅ Notificações em tempo real
-- ✅ Interface moderna e responsiva
+package.json            # Dependências e scripts
+tailwind.config.js      # Configuração do Tailwind CSS
+```
 
-## 🚨 Suporte
+## 🛠️ Scripts Disponíveis
 
-Para dúvidas sobre deploy ou configuração:
-- 📖 Consulte [DEPLOY_PRODUCTION.md](DEPLOY_PRODUCTION.md)
-- 🔧 Execute o script de deploy automatizado
+- `npm start` - Inicia o servidor de desenvolvimento
+- `npm build` - Gera build de produção
+- `npm test` - Executa os testes
+- `npm eject` - Ejecta do Create React App
 
----
+## 🌐 Deploy
 
-**🎉 Sistema pronto para produção com até 15 usuários simultâneos!**
+O projeto está configurado para deploy no Vercel. Para fazer deploy:
+
+1. Conecte o repositório ao Vercel
+2. Configure as variáveis de ambiente
+3. Deploy automático será feito a cada push
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT.
