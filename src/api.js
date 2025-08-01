@@ -2,13 +2,11 @@
 // Ajuste `BASE_URL` conforme o endereço onde o backend está rodando.
 
 import axios from 'axios';
-
-// Configuração da API para produção
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://seu-backend.railway.app';
+import config from './config';
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  timeout: 30000,
+  baseURL: config.API_BASE_URL,
+  timeout: config.API_TIMEOUT,
   headers: {
     'Content-Type': 'application/json',
   },

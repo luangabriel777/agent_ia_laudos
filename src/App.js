@@ -18,6 +18,7 @@ import LaudoViewer from './components/LaudoViewer';
 import LaudoEditor from './components/LaudoEditor';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
+import ConnectionDebug from './components/ConnectionDebug';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -259,6 +260,9 @@ function App() {
           onSave={handleLaudoSaved}
         />
       )}
+
+      {/* Componente de debug de conexão (só aparece em desenvolvimento) */}
+      <ConnectionDebug />
     </div>
   );
 }

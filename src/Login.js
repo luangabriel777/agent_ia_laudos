@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginModern.css';
+import api from './api';
 
 const Login = ({ onLogin }) => {
   const [credentials, setCredentials] = useState({
@@ -28,40 +29,52 @@ const Login = ({ onLogin }) => {
     setIsLoading(true);
     setError('');
 
-    const formData = new FormData();
-    formData.append('username', credentials.username);
-    formData.append('password', credentials.password);
-
     try {
-      // ✅ CORREÇÃO: Usando proxy configurado no package.json
-      const response = await fetch('/login', {
-        method: 'POST',
-        body: formData
+      // ✅ CORREÇÃO: Usando API configurada
+      const formData = new FormData();
+      formData.append('username', credentials.username);
+      formData.append('password', credentials.password);
+
+      const response = await api.post('/login', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.access_token);
+      if (response.data.access_token) {
+        localStorage.setItem('token', response.data.access_token);
         
-        // ✅ CORREÇÃO: Usando proxy configurado no package.json
-        const userResponse = await fetch('/me', {
-          headers: {
-            'Authorization': `Bearer ${data.access_token}`
-          }
-        });
-
-        if (userResponse.ok) {
-          const userInfo = await userResponse.json();
-          onLogin(userInfo);
+        // ✅ CORREÇÃO: Buscar informações do usuário
+        const userResponse = await api.get('/me');
+        
+        if (userResponse.data) {
+          localStorage.setItem('user', JSON.stringify(userResponse.data));
+          onLogin(userResponse.data);
         } else {
           setError('Erro ao buscar informações do usuário');
         }
       } else {
-        setError('Credenciais inválidas. Verifique seu usuário e senha.');
+        setError('Resposta inválida do servidor');
       }
     } catch (error) {
-      console.error('Erro de conexão:', error);
-      setError('Erro de conexão. Verifique se o backend está rodando e tente novamente.');
+      console.error('Erro de login:', error);
+      
+      if (error.response) {
+        // Erro do servidor
+        if (error.response.status === 401) {
+          setError('Credenciais inválidas. Verifique seu usuário e senha.');
+        } else if (error.response.status === 500) {
+          setError('Erro interno do servidor. Tente novamente mais tarde.');
+        } else {
+          setError(`Erro ${error.response.status}: ${error.response.data?.detail || 'Erro desconhecido'}`);
+        }
+      } else if (error.request) {
+        // Erro de conexão
+        setError('Erro de conexão. Verifique se o backend está rodando e tente novamente.');
+      } else {
+        // Outro erro
+        setError('Erro inesperado. Tente novamente.');
+      }
     } finally {
       setIsLoading(false);
     }
