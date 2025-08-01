@@ -1,38 +1,27 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/build",
+  "installCommand": "cd frontend && npm install",
+  "framework": "create-react-app",
+  "rewrites": [
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
-  "routes": [
+  "headers": [
     {
-      "src": "/static/(.*)",
-      "dest": "/frontend/build/static/$1"
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "/frontend/build/manifest.json"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/frontend/build/favicon.ico"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/build/index.html"
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "env": {
     "REACT_APP_API_URL": "@react_app_api_url"
-  },
-  "functions": {
-    "frontend/build/**/*.js": {
-      "maxDuration": 30
-    }
   }
 } 
