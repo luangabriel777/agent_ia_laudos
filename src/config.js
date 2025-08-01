@@ -4,7 +4,7 @@ const config = {
   API_BASE_URL: process.env.REACT_APP_API_URL || 
     (process.env.NODE_ENV === 'development' 
       ? '' // Em desenvolvimento, usa o proxy do package.json
-      : 'https://seu-backend-railway.railway.app' // Em produção, usa Railway
+      : 'https://agentialaudos-production.up.railway.app' // ✅ URL REAL DO RAILWAY
     ),
   
   // Timeout das requisições
