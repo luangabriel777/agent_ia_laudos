@@ -11,14 +11,16 @@
 - Escolher: `luangabriel777/agent_ia_laudos`
 - "Import"
 
-### 3️⃣ **Configurar Build**
+### 3️⃣ **Configurar Build** ⚠️ IMPORTANTE
 ```
 Framework Preset: Create React App
-Root Directory: ./
-Build Command: cd frontend && npm install && npm run build
-Output Directory: frontend/build
-Install Command: cd frontend && npm install
+Root Directory: frontend
+Build Command: npm run build
+Output Directory: build
+Install Command: npm install
 ```
+
+**🔑 CHAVE**: Root Directory deve ser `frontend` (não `./`)
 
 ### 4️⃣ **Configurar Variável da API**
 - Settings → Environment Variables
@@ -42,9 +44,9 @@ Environment: Production, Preview, Development
 
 ## 🔧 Se der erro:
 
-1. **Build failed**: Verificar logs do Vercel
-2. **CORS error**: Confirmar REACT_APP_API_URL
-3. **API not found**: Verificar se backend está rodando
+1. **Build failed**: Verificar se Root Directory é `frontend`
+2. **Framework not detected**: Selecionar manualmente "Create React App"
+3. **CORS error**: Confirmar REACT_APP_API_URL
 
 ## 📞 Ajuda
 - Logs detalhados: Aba "Deployments"
