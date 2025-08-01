@@ -74,4 +74,4 @@ O projeto está configurado para deploy no Vercel. Para fazer deploy:
 
 ## 📝 Licença
 
-Este projeto está sob a licença MIT.
+Este projeto está sob a licença MIT. 
