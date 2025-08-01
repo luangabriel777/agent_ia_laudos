@@ -4,6 +4,13 @@
 import axios from 'axios';
 import config from './config';
 
+// Debug: mostrar configuração da API
+console.log('🔧 API Config:', {
+  baseURL: config.API_BASE_URL,
+  environment: process.env.NODE_ENV,
+  apiUrl: process.env.REACT_APP_API_URL
+});
+
 const api = axios.create({
   baseURL: config.API_BASE_URL,
   timeout: config.API_TIMEOUT,
