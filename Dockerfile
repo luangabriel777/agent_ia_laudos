@@ -18,8 +18,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar código da aplicação
 COPY backend/ ./backend/
 
+# Copiar script de inicialização
+COPY start.sh ./start.sh
+
+# Tornar script executável
+RUN chmod +x ./start.sh
+
 # Expor porta
-EXPOSE $PORT
+EXPOSE 8000
 
 # Comando para iniciar a aplicação
-CMD ["python", "-m", "uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "$PORT", "--workers", "2"] 
+CMD ["./start.sh"] 
