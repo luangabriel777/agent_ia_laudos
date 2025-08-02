@@ -84,8 +84,12 @@ const Login = ({ onLogin }) => {
           setError(`Erro ${error.response.status}: ${error.response.data?.detail || 'Erro desconhecido'}`);
         }
       } else if (error.request) {
-        // Erro de conexão
-        setError('Erro de conexão. Verifique se o backend está rodando e tente novamente.');
+        // Erro de conexão - provavelmente CORS
+        if (error.message.includes('Network Error') || error.message.includes('CORS')) {
+          setError('Erro de CORS: O backend não está configurado para aceitar requisições deste domínio. Entre em contato com o administrador.');
+        } else {
+          setError('Erro de conexão. Verifique se o backend está rodando e tente novamente.');
+        }
       } else {
         // Outro erro
         setError('Erro inesperado. Tente novamente.');
