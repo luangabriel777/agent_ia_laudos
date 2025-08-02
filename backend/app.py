@@ -70,11 +70,13 @@ app = FastAPI(
 
 # === MIDDLEWARE DE SEGURANÇA ===
 # Configuração CORS para produção
-FRONTEND_URL = os.environ.get('FRONTEND_URL', 'https://seu-frontend.vercel.app')
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'https://www.escolhatech.shop')
 CORS_ORIGINS = os.environ.get('CORS_ORIGINS', FRONTEND_URL)
 
 ALLOWED_ORIGINS = [
     FRONTEND_URL,
+    'https://www.escolhatech.shop',
+    'https://escolhatech.shop',
     'http://localhost:3000',  # desenvolvimento
     'https://localhost:3000'  # desenvolvimento HTTPS
 ]
