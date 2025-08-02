@@ -3,6 +3,7 @@ import './App.css';
 import './ModernDesign.css';
 import './DesignSystem.css';
 import Login from './Login';
+import api from './api';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
@@ -99,15 +100,11 @@ function App() {
 
   const fetchUserInfo = async () => {
     try {
-      const response = await fetch('/me', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
+      // ✅ CORREÇÃO: Usar a instância do axios configurada
+      const response = await api.get('/me');
       
-      if (response.ok) {
-        const userData = await response.json();
-        setUserInfo(userData);
+      if (response.data) {
+        setUserInfo(response.data);
         setIsLoggedIn(true);
       } else {
         localStorage.removeItem('token');

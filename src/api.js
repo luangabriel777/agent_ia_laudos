@@ -14,9 +14,7 @@ console.log('🔧 API Config:', {
 const api = axios.create({
   baseURL: config.API_BASE_URL,
   timeout: config.API_TIMEOUT,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  // Removido Content-Type padrão para permitir diferentes tipos por endpoint
 });
 
 // Interceptor para adicionar token de autenticação
