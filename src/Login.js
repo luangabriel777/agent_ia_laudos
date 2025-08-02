@@ -30,29 +30,16 @@ const Login = ({ onLogin }) => {
     setError('');
 
     try {
-      // ✅ CORREÇÃO: Tentativa com JSON primeiro
-      let response;
-      try {
-        response = await api.post('/login', {
-          username: credentials.username,
-          password: credentials.password
-        });
-      } catch (jsonError) {
-        // Se falhar com JSON, tenta com FormData (formato FastAPI)
-        if (jsonError.response?.status === 405) {
-          const formData = new URLSearchParams();
-          formData.append('username', credentials.username);
-          formData.append('password', credentials.password);
-          
-          response = await api.post('/login', formData, {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          });
-        } else {
-          throw jsonError;
-        }
-      }
+      // ✅ CORREÇÃO: FastAPI OAuth2PasswordRequestForm espera form-urlencoded
+      const formData = new URLSearchParams();
+      formData.append('username', credentials.username);
+      formData.append('password', credentials.password);
+      
+      const response = await api.post('/login', formData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
 
       if (response.data.access_token) {
         localStorage.setItem('token', response.data.access_token);
@@ -76,6 +63,8 @@ const Login = ({ onLogin }) => {
         // Erro do servidor
         if (error.response.status === 401) {
           setError('Credenciais inválidas. Verifique seu usuário e senha.');
+        } else if (error.response.status === 422) {
+          setError('Dados inválidos. Verifique se os campos estão preenchidos corretamente.');
         } else if (error.response.status === 405) {
           setError('Método não permitido. Verificando configuração do backend...');
         } else if (error.response.status === 500) {
